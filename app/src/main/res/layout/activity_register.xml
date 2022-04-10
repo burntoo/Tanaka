@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:hint="Your Height"
+                android:hint="Your Height (Meters)"
                 android:inputType="phone"
                 android:fontFamily="@font/lato"
                 android:textSize="15sp"

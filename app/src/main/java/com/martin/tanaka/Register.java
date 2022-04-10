@@ -153,7 +153,7 @@ public class Register extends AppCompatActivity {
                                     binding.edPhone.getText().toString(),
                                     encodedBitmapProfile,
                                     binding.edAge.getText().toString(),
-                                    binding.edHeight.getText().toString(),
+                                    binding.edHeight.getText().toString() + "meters",
                                     binding.spMarital.getSelectedItem().toString(),
                                     binding.edLocation.getText().toString(),
                                     "Longitude: " + longitude + " : Latitude: " + latitude,
