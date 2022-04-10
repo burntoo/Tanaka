@@ -45,6 +45,7 @@ public class Dashboard extends AppCompatActivity {
             phone = (String) savedInstanceState.getSerializable("Phone");
         }
 
+        //get user information
         Cursor res = dbHelper.getData(phone);
         if(res.getCount()==0){
             Toast.makeText(Dashboard.this, "No Entry Exists", Toast.LENGTH_SHORT).show();
@@ -62,9 +63,11 @@ public class Dashboard extends AppCompatActivity {
             binding.txtScore.setText("Your Score : "+ res.getString(7));
         }
 
+        //decode base64 to bitmap
         byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
+        //set bitmap to profile
         binding.profile.setImageBitmap(decodedByte);
     }
 }

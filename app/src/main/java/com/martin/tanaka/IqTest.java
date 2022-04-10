@@ -49,6 +49,7 @@ public class IqTest extends AppCompatActivity {
             }
         });
 
+        //initialize Question adapter
         mAdapter = new QuestionsAdapter(IqTest.this, questionsList);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(IqTest.this);
@@ -62,12 +63,15 @@ public class IqTest extends AppCompatActivity {
         binding.recyclerView.setAdapter(mAdapter);
 
         try {
+            //convert string to json
             JSONObject obj = new JSONObject(iqQuestions);
 
             Log.d("MyApp", obj.toString());
 
+            //get json array
             JSONArray array = new JSONArray(obj.getString("quiz"));
 
+            //loop through array
             for (int i = 0; i < array.length(); i++) {
 
                 JSONObject object = array.getJSONObject(i);

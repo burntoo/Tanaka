@@ -26,6 +26,7 @@ public class DBHelper extends SQLiteOpenHelper  {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS users");
     }
 
+    //insert data to database
     public Boolean insertData (String name, String phoneNumber, String img, String age,String height, String marital, String location, String coordinates, String password){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -47,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper  {
             return true;
     }
 
+    //check if phone exist
     public boolean checkPhone(String phone){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT phonenumber FROM students WHERE phonenumber = ?", new String[] {phone});
@@ -55,6 +57,7 @@ public class DBHelper extends SQLiteOpenHelper  {
             return false;
     }
 
+    //login
     public boolean login(String phone, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT phonenumber, password FROM students WHERE phonenumber = ? AND password = ?", new String[] {phone, password});
@@ -62,6 +65,7 @@ public class DBHelper extends SQLiteOpenHelper  {
         else{ return false; }
     }
 
+    //get user data from database
     public Cursor getData (String phone)
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();

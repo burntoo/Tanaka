@@ -82,8 +82,10 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        //VALIDATE USER INPUTS
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
+        //INITIALIZE SQLITE DATABASE
         Db = new DBHelper(this);
 
         awesomeValidation.addValidation(this, R.id.ed_name, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
@@ -111,6 +113,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        //BUTTON  LOCATION CLICK
         binding.btnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,6 +132,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        //BUTTON CONTINUE CLICK
         binding.btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -180,20 +184,25 @@ public class Register extends AppCompatActivity {
 
     }
 
+    //CAMERA RESULT FUNCTION
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
 
+            //convert bitmap to base64
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             encodedBitmapProfile = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+            //set image
             binding.capture.setImageBitmap(photo);
         }
     }
 
+    //LOCATION PERMISSION REQUEST
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -201,6 +210,7 @@ public class Register extends AppCompatActivity {
         } else {}
     }
 
+    //CHECK GPS TURN ON
     private void  turnOnGps(){
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
@@ -244,6 +254,7 @@ public class Register extends AppCompatActivity {
         });
     }
 
+    //TURN ON GPS
     private boolean isGps(){
         LocationManager locationManager = null;
         boolean isEnabled = false;
@@ -255,6 +266,8 @@ public class Register extends AppCompatActivity {
         return isEnabled;
     }
 
+
+    //GET USER CURRENT LOCATION
     private void getCurrentLocation() {
         ProgressDialog dialog = new ProgressDialog(Register.this);
         dialog.show();
@@ -290,6 +303,7 @@ public class Register extends AppCompatActivity {
 
     }
 
+    //REVERSE GEO TAGGING
     private void reverseGeo(){
         try{
             Geocoder geocoder =new Geocoder(this, Locale.getDefault());

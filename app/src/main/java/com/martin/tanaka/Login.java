@@ -17,6 +17,7 @@ public class Login extends AppCompatActivity {
 
     ActivityLoginBinding binding;
 
+    //sqlite database
     DBHelper dbHelper;
 
     AwesomeValidation awesomeValidation;
@@ -32,11 +33,14 @@ public class Login extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
+        //INPUT VALIDATION
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         awesomeValidation.addValidation(this, R.id.ed_phone, ".{9,}", R.string.invalid_phone);
         awesomeValidation.addValidation(this, R.id.ed_password, ".{6,}", R.string.invalid_password);
 
+
+        //SIGN UP BUTTON CLICK
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,11 +62,13 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    //LOGIN FUNCTION
     private boolean login(){
         if(awesomeValidation.validate()) {
             String phoneNum = binding.edPhone.getText().toString();
             String pass = binding.edPassword.getText().toString();
 
+            //call sqlite database
             boolean userLogin = dbHelper.login(phoneNum, pass);
             if(!userLogin){
                 Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
