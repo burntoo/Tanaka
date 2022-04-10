@@ -38,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper  {
         values.put("marital", marital);
         values.put("location", location);
         values.put("coordinates", coordinates);
-        values.put("score", "0");
+        values.put("score", "0%");
         values.put("password", password);
 
         long results = db.insert("students", null, values);
