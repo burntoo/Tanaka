@@ -42,7 +42,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
-                Login.this.finish();
             }
         });
 
@@ -51,6 +50,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if(login()) {
                     Intent intent = new Intent(Login.this, Dashboard.class);
+                    intent.putExtra("Phone", binding.edPhone.getText().toString());
                     startActivity(intent);
                     Login.this.finish();
                 }

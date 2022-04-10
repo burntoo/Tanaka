@@ -65,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper  {
     public Cursor getData (String phone)
     {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT name, phonenumber, profileImage, age, height, marital, location, score FROM students", new String[] {phone});
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT name, phonenumber, profileImage, age, height, marital, location, score FROM students WHERE phonenumber = ?", new String[] {phone});
         return cursor;
     }
 

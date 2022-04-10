@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
 import android.widget.Toast;
 
 import com.martin.tanaka.DBHelper.DBHelper;
@@ -18,7 +19,8 @@ public class Dashboard extends AppCompatActivity {
 
     DBHelper dbHelper;
 
-    String phone, encodedImage;
+    String phone = "";
+    String encodedImage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +29,21 @@ public class Dashboard extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.appBar.toolTitle.setText("Dashboard");
+        binding.appBar.img.setVisibility(View.GONE);
 
         dbHelper = new DBHelper(this);
+
+        if(savedInstanceState == null){
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                phone = null;
+            } else {
+                phone = extras.getString("Phone");
+            }
+        }
+        else {
+            phone = (String) savedInstanceState.getSerializable("Phone");
+        }
 
         Cursor res = dbHelper.getData(phone);
         if(res.getCount()==0){

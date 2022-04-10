@@ -43,7 +43,7 @@
         </activity>
         <activity
             android:name=".IqTest"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

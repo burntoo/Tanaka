@@ -74,6 +74,14 @@ public class Register extends AppCompatActivity {
 
         binding.appBar.toolTitle.setText("Register");
 
+        binding.appBar.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
         Db = new DBHelper(this);

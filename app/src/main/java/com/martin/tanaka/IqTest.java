@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,14 @@ public class IqTest extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.appBar.toolTitle.setText("IQ Test");
+
+        binding.appBar.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IqTest.this, Login.class);
+                startActivity(intent);
+            }
+        });
 
         mAdapter = new QuestionsAdapter(IqTest.this, questionsList);
 
