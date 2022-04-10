@@ -198,9 +198,7 @@ public class Register extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PICK_REQUEST && grantResults.length > 0) {
-        } else {
-            Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
-        }
+        } else {}
     }
 
     private void  turnOnGps(){

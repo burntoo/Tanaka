@@ -44,24 +44,6 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         holder.choice3.setText(questionsModel.getChoice3());
         holder.choice4.setText(questionsModel.getChoice4());
 
-        String correctAnswer = questionsModel.getAnswer();
-        final String[] answer = {""};
-
-        holder.choice.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton radioButton = radioGroup.findViewById(i);
-                answer[0] = radioButton.getText().toString();
-
-                if(correctAnswer.equals(answer[0])){
-                    Log.d("clicked", "CORRECT");
-                }
-                else{
-                    Log.d("clicked", "InCORRECT");
-                }
-            }
-        });
-
     }
 
     @Override

@@ -72,32 +72,6 @@ public class IqTest extends AppCompatActivity {
 
                 JSONObject object = array.getJSONObject(i);
 
-                final boolean[] isDismissed = {false};
-                AlertDialog alert = new AlertDialog.Builder(IqTest.this)
-                        .setTitle(object.getString("question"))
-                        .setCancelable(true)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                isDismissed[0] = true;
-                                Log.e("TAG", "click: No");
-
-                            }
-                        })
-                        .create();
-                alert.setCanceledOnTouchOutside(true);
-                alert.show();
-
-                while(!isDismissed[0]) {
-                    //do nothing
-                }
-
                 QuestionsModel questionsModel = new QuestionsModel(
                         object.getString("question"),
                         object.getString("choice1"),
