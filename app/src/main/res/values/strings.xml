@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tanaka</string>
+    <string name="invalid_name">Your name is required</string>
+    <string name="invalid_age">Your age is required</string>
+    <string name="invalid_height">Your height is required</string>
+    <string name="invalid_location">Your location is required</string>
+    <string name="invalid_password">Password is required</string>
+    <string name="invalid_confirm_password">Confirm password is required</string>
+    <string name="invalid_phone">Your phone number is required</string>
+</resources>

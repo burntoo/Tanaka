@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Dashboard">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/page_title">
+    </include>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_person"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Martin Nganga Njorogr"
+        android:layout_marginTop="20dp"
+        android:id="@+id/txt_name" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="070000000"
+        android:id="@+id/txt_phone" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="28"
+        android:id="@+id/txt_age" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="1.87"
+        android:id="@+id/txt_height" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Single"
+        android:id="@+id/txt_marital" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_marital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Single"
+        android:id="@+id/txt_location" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:text="150 marks"
+        android:id="@+id/txt_score" />
+
+
+</RelativeLayout>
